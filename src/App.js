@@ -7,46 +7,33 @@ import Fluid from 'webgl-fluid';
 
 function App() {
   const canvas = useRef(null);
-
-  useEffect(() => {
-    const c = canvas.current;
-
-    const initializeFluid = () => {
-      c.width = window.innerWidth;
-      c.height = window.innerHeight;
-      Fluid(c); // Initialize the fluid effect only once
-    };
-
-    const resizeCanvas = () => {
-      c.width = window.innerWidth;
-      c.height = window.innerHeight;
-    };
-
-    initializeFluid();
-    window.addEventListener('resize', resizeCanvas);
-
-    const handleMouseMove = (event) => {
-      const rect = c.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      if (Fluid.addDrop) {
-        Fluid.addDrop(x, y);
-      }
-    };
-
-    c.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      c.removeEventListener('mousemove', handleMouseMove);
-    };
+  useEffect(function () {
+    let c = canvas.current;
+    Fluid(c, {
+      SIM_RESOLUTION: 128, // Lower resolution for smaller size
+      DENSITY_DISSIPATION: 10, // Increased dissipation for quicker fade
+      VELOCITY_DISSIPATION: 1, // Increased dissipation for quicker fade
+      PRESSURE: 0.52, // Adjust pressure for smaller effect
+      SPLAT_RADIUS: 0.05, // Smaller splat radius for smaller interaction
+    });
   }, []);
+
 
   return (
     <div className="App">
-      <canvas ref={canvas} className="fluid-canvas"></canvas>
-      <div className="landing-page-wrapper">
+       <canvas
+        ref={canvas}
+        style={{
+          width: "100%",
+          height: "103%",
+          position: "absolute",
+          top: -80,
+          left: 0,
+          backgroundColor:'#000080'
+        }}></canvas>
+      <div
+        style={{ zIndex: 9999, position: "relative", pointerEvents: "none" }}
+      >
         <LandingPage />
       </div>
     </div>

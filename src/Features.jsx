@@ -9,7 +9,7 @@ import img3 from "./assets/motionarteffect-img7.png";
 export default function Features(){
 
     return(
-        <div style={{marginBottom:'100px'}}>
+        <div style={{marginBottom:'500px'}}>
            <Typography style={{fontFamily: "'Sora', sans-serif",marginTop:'130px',fontSize:'250%',lineHeight:'1.5',textAlign:'center',fontWeight:500}}>An All-Round Plugin With<br></br> Powerful Features</Typography>
            <Typography style={{fontFamily: "'Outfit', sans-serif",marginTop:'20px',fontSize:'18px',color:'#a6a1b6',textAlign:'center'}}>Whether you're a seasoned web designer or just starting out, Motion Art for<br></br> Elementor seamlessly integrates with the Elementor platform, providing you<br></br> with a seamless and intuitive experience.</Typography>
             <Grid container spacing={8} style={{width:'88%',justifyContent:'center',margin:'0 auto'}}>
