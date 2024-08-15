@@ -1,1 +1,1 @@
-https://motion-effect-heliverse-vishwa.vercel.app/
+https://motion-effect.vercel.app/
